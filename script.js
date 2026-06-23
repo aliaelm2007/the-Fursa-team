@@ -201,7 +201,28 @@
   });
 
   // waitlist form submit -> show success state
-  document.getElementById('waitlistForm').addEventListener('submit', (e) => {
+  document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById('waitlistEmail').value;
+  const city = document.getElementById('waitlistCity').value;
+
+  await fetch('/api/waitlist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      Name: '',
+      Email: email,
+      City: city,
+      Source: 'Website'
+    })
+  });
+
+  document.getElementById('waitlistFormView').hidden = true;
+  document.getElementById('waitlistSuccessView').hidden = false;
+});
     e.preventDefault();
     const city = document.getElementById('waitlistCity').value;
     document.getElementById('waitlistFormView').hidden = true;
