@@ -223,13 +223,6 @@
   document.getElementById('waitlistFormView').hidden = true;
   document.getElementById('waitlistSuccessView').hidden = false;
 });
-    e.preventDefault();
-    const city = document.getElementById('waitlistCity').value;
-    document.getElementById('waitlistFormView').hidden = true;
-    document.getElementById('waitlistSuccessView').hidden = false;
-    document.getElementById('waitlistSuccessText').textContent =
-      city ? `We'll email you the moment Fursa opens in ${city}.` : `We'll email you the moment Fursa opens near you.`;
-  });
 
   // partner form submit -> show success state
   document.getElementById('partnerForm').addEventListener('submit', (e) => {
